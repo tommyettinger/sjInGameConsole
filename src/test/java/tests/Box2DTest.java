@@ -47,11 +47,6 @@ public class Box2DTest extends ApplicationAdapter {
 	Console console;
 	MyCommandExecutor cExec;
 
-	public static void main (String[] args) {
-		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		new Lwjgl3Application(new Box2DTest(), config);
-	}
-
 	@Override public void create () {
 		float w = Gdx.graphics.getWidth();
 		w *= 2;
@@ -294,5 +289,10 @@ public class Box2DTest extends ApplicationAdapter {
 			last = !last;
 			console.enableSubmitButton(last);
 		}
+	}
+
+	public static void main (String[] args) {
+		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
+		new Lwjgl3Application(new Box2DTest(), config);
 	}
 }

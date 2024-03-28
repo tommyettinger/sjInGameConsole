@@ -24,7 +24,7 @@ version number.
 If you have a GWT project, add this line to the dependencies section of the **html** project, also replacing
 **$inGameConsoleVersion** as before:
 
-`implementation "com.github.tommyettinger:sjInGameConsole:$inGameConsoleVersion:sources"`  
+`implementation "com.github.tommyettinger:sjInGameConsole:$inGameConsoleVersion:sources"`
 
 Then simply right-click the project and choose `Gradle->Refresh All`.
 

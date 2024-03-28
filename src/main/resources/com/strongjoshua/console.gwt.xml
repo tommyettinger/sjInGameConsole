@@ -11,6 +11,15 @@
          This path is slash-separated and is relative to this file. -->
     <source path="console"/>
     <inherits name="com.badlogic.gdx.backends.gdx_backends_gwt" />
+
+	<extend-configuration-property name="gdx.reflect.include" value="com.strongjoshua.console.CommandExecutor" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.scenes.scene2d.ui.Table" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.scenes.scene2d.ui.Label" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.scenes.scene2d.ui.Window" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.scenes.scene2d.ui.TextArea" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.scenes.scene2d.ui.TextButton" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.scenes.scene2d.ui.ScrollPane" />
+
 	<extend-configuration-property name="gdx.files.classpath" value="default_skin/uiskin.json" />
 	<extend-configuration-property name="gdx.files.classpath" value="default_skin/uiskin.atlas" />
 	<extend-configuration-property name="gdx.files.classpath" value="default_skin/uiskin.png" />
