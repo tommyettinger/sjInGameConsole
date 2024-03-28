@@ -18,20 +18,37 @@ Add the following line to your build.gradle file under the dependencies section 
 
 `api "com.github.tommyettinger:sjInGameConsole:$inGameConsoleVersion"`  
 
-Replace **$inGameConsoleVersion** with the newest version number! You can also use a commit hash from JitPack as a
-version number.
+Replace **$inGameConsoleVersion** with the newest version number! You can also use
+[a commit hash from JitPack ](https://jitpack.io/#tommyettinger/sjInGameConsole) as a version number.
+
+Then simply right-click the project and choose `Gradle->Refresh All`. Those are the only necessary steps for most
+platforms. If you have a GWT project, then more steps are required.
 
 If you have a GWT project, add this line to the dependencies section of the **html** project, also replacing
 **$inGameConsoleVersion** as before:
 
 `implementation "com.github.tommyettinger:sjInGameConsole:$inGameConsoleVersion:sources"`
 
-Then simply right-click the project and choose `Gradle->Refresh All`.
+GWT also needs an `inherits` line added (without changes), plus one more thing that depends on your project:
+
+```xml
+  <inherits name="com.strongjoshua.console" />
+
+  <extend-configuration-property name="gdx.reflect.include" value="the_package_that_has.your.command.executor" />
+```
+
+Change `the_package_that_has.your.commands` to, well, the package that has your command executor or executors in it.
+These are classes that extend `CommandExecutor` and define the commands users can run. This line allows GWT to access
+your commands via reflection (looking them up by name); you may need to add other classes or packages to GWT's
+reflection configuration, depending on your project. If you know where all the commands will be defined, you can use
+specific classes instead of a whole package, which saves some space in the webpage.
+
 
 Versions
 ========
-Latest Stable: **1.0.0** (see [previous repo](https://github.com/StrongJoshua/libgdx-inGameConsole))
-Latest Snapshot: **1.0.1-SNAPSHOT**
+Previous Stable: **1.0.0** (see [previous repo](https://github.com/StrongJoshua/libgdx-inGameConsole))
+Latest Stable: **1.0.1** (first GWT-compatible release)
+Latest Snapshot: **1.0.2-SNAPSHOT**
 
 License
 =======
