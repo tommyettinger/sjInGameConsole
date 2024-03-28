@@ -14,7 +14,7 @@ apply plugin: 'java-library'
 apply plugin: 'com.vanniktech.maven.publish'
 
 //Obviously, change the next line to match your project name.
-def projectName = 'libgdx-library-template'
+def projectName = 'sjInGameConsole'
 
 //Change this to whatever Maven Central group you might publish to, which is probably not this one if you aren't Tommy Ettinger.
 group 'com.github.tommyettinger'
@@ -87,11 +87,12 @@ repositories {
 }
 
 dependencies {
-// Change gdxVersion in gradle.properties to update or downgrade.
-// Libraries that don't use libGDX directly can change the next line
-// from `api` to `testImplementation` .
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.kotcrab.vis:vis-ui:1.4.0"
     testImplementation "junit:junit:4.13.2"
+
 }

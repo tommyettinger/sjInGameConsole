@@ -1,32 +1,50 @@
-# Library Template using libGDX and Gradle 8.x
+# SJ In-Game Console
+This is a libGDX library that allows a developer to add a console (similar to how it is featured in Source games) to
+their game. This repo is an update to [an earlier repo](https://github.com/StrongJoshua/libgdx-inGameConsole) by
+StrongJoshua, and has the same usage but also includes some bug fixes/build fixes. Check out the changelog at
+[StrongJoshua's website](https://www.strongjoshua.net/projects/games/libgdx-ingame-console)!
 
-Change this to fit your library!
+### How it works
+Essentially what the console allows you to do is specify commands that you will be able to access from within the game,
+using the console. The console also enables live logging from within the application.
 
-You'll want to edit gradle.properties to match your library's name, description, author, license, and so on.
-You probably also want to edit build.gradle to match the projectName and group to what you want to use.
+### Purpose
+This console speeds up development substantially by removing the need to recompile a program every time a minute change
+is made, specifically in regard to manipulating constants or other values when balancing a game, for example.
 
-You should "Find in Files" and search for any places that use the word "template" in order to find anything
-you will want to replace.
+### Integration
+#### Gradle
+Add the following line to your build.gradle file under the dependencies section of the **core** project:  
 
-This includes some extra configuration so you can deploy more easily to [JitPack](https://jitpack.io). If you're
-testing a specific commit and don't want to push a release to GitHub or Maven Central just to test (especially
-if testing by seeing if a user can build with your library), then JitPack is a great option. It can also be an
-excellent way of making GitHub releases available via Maven or Gradle dependencies. The `jitpack.yml` file this
-includes defaults to Java 17; you can potentially raise this as high as 21, though that might cause problems
-with Kotlin or libraries like Kryo, or as low as 11 (the minimum for the publishing plugin this uses).
+`api "com.github.tommyettinger:sjInGameConsole:$inGameConsoleVersion"`  
 
-Regardless of which JDK version JitPack uses to build, the default sourceCompatibility, targetCompatibility, and
-release are set to JDK 7, which limits compatibility to a pretty small subset of Java's features. You can increase
-those to 8, so you can use Java 8's features (lambdas, method references, default methods, etc.) but nothing
-higher (`var`, records, pattern matching, etc.). Using the language level of Java 8 is generally safe, but
-specific APIs added in Java 8 generally aren't available in RoboVM, GWT, or some versions of Android. You can
-go up to compatibility with 11 to get access to `var`, but then you lose all compatibility with RoboVM.
+Replace **$inGameConsoleVersion** with the newest version number! You can also use a commit hash from JitPack as a
+version number.
 
-The test code, which goes in `src/test/java/`, uses compatibility with Java 8 by default, so you can use LWJGL3
-in tests out-of-the-box.
+If you have a GWT project, add this line to the dependencies section of the **html** project, also replacing
+**$inGameConsoleVersion** as before:
 
-This currently uses Gradle 8.x; if you want an earlier version that uses 7.x,
-[here you go](https://github.com/tommyettinger/libgdx-library-template/releases/tag/v7.6)!
-Gradle 8.x seems to be fine for library code, and since approximately the middle of 2023, the tooling seems
-to have finally become capable of handling Gradle 8.x and Android/RoboVM projects. Your Android Gradle Plugin
-version should probably be 8.1.2 at this point; it may be able to go up soon as IDEA gets more support.
+`implementation "com.github.tommyettinger:sjInGameConsole:$inGameConsoleVersion:sources"`  
+
+Then simply right-click the project and choose `Gradle->Refresh All`.
+
+Versions
+========
+Latest Stable: **1.0.0** (see [previous repo](https://github.com/StrongJoshua/libgdx-inGameConsole))
+Latest Snapshot: **1.0.1-SNAPSHOT**
+
+License
+=======
+Copyright 2024
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use these files except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
